@@ -1,0 +1,26 @@
+{
+    "responseId": "21a837b1-e710-42f9-bd1f-c3796ba40b13-e6604cc1",
+    "queryResult": {
+        "queryText": "count",
+        "action": "totalStudent.action",
+        "parameters": {},
+        "allRequiredParamsPresent": true,
+        "fulfillmentMessages": [{
+            "text": {
+                "text": [
+                    ""
+                ]
+            }
+        }],
+        "intent": {
+            "name": "projects/eschool-ixlinf/agent/intents/47c5a63b-dba7-43d1-9dc9-f586470f878b",
+            "displayName": "total student count"
+        },
+        "intentDetectionConfidence": 0.3517586,
+        "languageCode": "en"
+    },
+    "originalDetectIntentRequest": {
+        "payload": {}
+    },
+    "session": "projects/eschool-ixlinf/agent/sessions/0e8ca4d2-df4a-0702-1b05-b2e61b7d718b"
+}
