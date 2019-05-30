@@ -55,7 +55,25 @@ app.post('/webhook/', function(request, response) {
                 malecount++
             }
         }
-        return response.json({ fulfillmentText: `Total male students are ${malecount}` });
+        return response.json({
+            fulfillmentText: `Total male students are ${malecount}`,
+            "fulfillmentMessages": [{
+                    "text": {
+                        "text": [
+                            "test text from local"
+                        ]
+                    },
+                    "platform": "FACEBOOK"
+                },
+                {
+                    "text": {
+                        "text": [
+                            ""
+                        ]
+                    }
+                }
+            ],
+        });
     }
 
     function totfemaleCount() {
