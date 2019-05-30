@@ -6,7 +6,6 @@ var dialogflow = require('./dialogflow');
 // var studentsData = require('"csvjson (1).json"')
 // console.log(studentsData.length)
 var members = require('./eschool');
-membersCount = members.length
 
 var app = express();
 app.use(express.static('public'));
@@ -32,10 +31,43 @@ app.post('/webhook/', function(request, response) {
             response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
             break;
         case "total student count":
-            return response.json({ fulfillmentText: `The total strength is ${membersCount}` });
+            totCount();
             break;
+        case "total Male student count":
+            totmaleCount();
+            break;
+        case "total female student count":
+            totfemaleCount();
+            break;
+        default:
+            return response.json({ fulfillmentText: `The webhook recheck` });
     }
-    return response.json({ fulfillmentText: "This is from webhook recheck" });
+
+    function totCount() {
+        var membersCount = members.length;
+        return response.json({ fulfillmentText: `The total strength of students is ${membersCount}` });
+    }
+
+    function totmaleCount() {
+        var malecount = 0;
+        for (i = 0; i < members.length; i++) {
+            if (members[i].Gender == "Male") {
+                malecount++
+            }
+        }
+        return response.json({ fulfillmentText: `Total male students are ${malecount}` });
+    }
+
+    function totfemaleCount() {
+        var femalecount = 0;
+        for (i = 0; i < members.length; i++) {
+            if (members[i].Gender == "Female") {
+                femalecount++
+            }
+        }
+        return response.json({ fulfillmentText: `Total female students are ${femalecount}` });
+    }
+
 });
 
 // listen for requests :)
