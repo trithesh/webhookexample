@@ -3,9 +3,10 @@ var bodyParser = require('body-parser');
 var googleSpreadsheet = require('./googleSpreadsheet');
 var dialogflow = require('./dialogflow');
 // import students list file
-var studentsData = require('"csvjson (1).json"')
-    // var members = require('./eschool');
-console.log(studentsData.length)
+// var studentsData = require('"csvjson (1).json"')
+// console.log(studentsData.length)
+var members = require('./eschool');
+membersCount = members.length
 
 var app = express();
 app.use(express.static('public'));
