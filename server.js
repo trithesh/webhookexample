@@ -32,12 +32,8 @@ app.post('/webhook/', function(request, response) {
             response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
             break;
         case "total student count":
-            response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
+            return response.json({ fulfillmentText: `The total strength is ${membersCount}` });
             break;
-    }
-
-    if (action === "totalStudent.action") {
-        return response.json({ fulfillmentText: `The total strength is ${membersCount}` });
     }
     return response.json({ fulfillmentText: "This is from webhook recheck" });
 });
