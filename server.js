@@ -1,11 +1,13 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var app = express();
 var googleSpreadsheet = require('./googleSpreadsheet');
 var dialogflow = require('./dialogflow');
+// import students list file
+var studentsData = require('"csvjson (1).json"')
+    // var members = require('./eschool');
+console.log(studentsData.length)
 
-var members = require('./eschool');
-const membersCount = members.length;
+var app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
