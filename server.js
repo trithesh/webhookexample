@@ -161,32 +161,14 @@ app.post('/webhook/', function(request, response) {
                     return response.json({
                         fulfillmentMessages: [{
                                 text: {
-                                    text: [`
-                                    Admission No: ${members[i]["Admission No"]}`, `
-                                    Admission Date: ${members[i]["Admission Date"]}`, `
-                                    First Name: ${members[i]["First Name"]}`, `
-                                    Middle Name: ${members[i]["Middle Name"]}`, `
-                                    Last Name:${members[i]["Last Name"]}`, ` 
-                                    National Student ID: ${members[i]["National Student ID"]}`, `
-                                    Cohort: ${members[i]["Cohort"]}`, `
-                                    Date Of Birth: ${members[i]["Date Of Birth"]}`, `
-                                    Gender:${members[i]["Gender"]} `, `
-                                    Nationality: ${members[i]["Nationality"]}`, `
-                                    Second Language: ${members[i]["Second Language"]}`, `
-                                    Religion: ${members[i]["Religion"]}`, `
-                                    Student Category:${members[i]["Student Category"]}`, `
-                                    Student Address Line 1:${members[i]["Student Address Line 1"]}`, `
-                                    Student Address Line 2: ${members[i]["Student Address Line 2"]}`, `
-                                    City: ${members[i]["City"]}`, `
-                                    State: ${members[i]["State"]}`, `
-                                    Pin Code:${members[i]["Pin Code"]}`, `
-                                    Email:${members[i]["Email"]}`]
+                                    text: [`Admission No: ${members[i]["Admission No"]}`, `Admission Date: ${members[i]["Admission Date"]}`, `First Name: ${members[i]["First Name"]}`, `Middle Name: ${members[i]["Middle Name"]}`, `Last Name:${members[i]["Last Name"]}`, `National Student ID: ${members[i]["National Student ID"]}`, `Cohort: ${members[i]["Cohort"]}`, `Date Of Birth: ${members[i]["Date Of Birth"]}`, `Gender:${members[i]["Gender"]} `, `Nationality: ${members[i]["Nationality"]}`, `Second Language: ${members[i]["Second Language"]}`, `Religion: ${members[i]["Religion"]}`, `Student Category:${members[i]["Student Category"]}`, `Student Address Line 1:${members[i]["Student Address Line 1"]}`, `Student Address Line 2: ${members[i]["Student Address Line 2"]}`, `City: ${members[i]["City"]}`, `State: ${members[i]["State"]}`, `Pin Code:${members[i]["Pin Code"]}`, `Email:${members[i]["Email"]}`]
                                 },
                                 platform: "FACEBOOK"
                             },
                             {
                                 text: {
-                                    text: []
+                                    text: [`Admission No: ${members[i]["Admission No"]}`, `Admission Date: ${members[i]["Admission Date"]}`, `First Name: ${members[i]["First Name"]}`, `Middle Name: ${members[i]["Middle Name"]}`, `Last Name:${members[i]["Last Name"]}`, `National Student ID: ${members[i]["National Student ID"]}`, `Cohort: ${members[i]["Cohort"]}`, `Date Of Birth: ${members[i]["Date Of Birth"]}`, `Gender:${members[i]["Gender"]} `, `Nationality: ${members[i]["Nationality"]}`, `Second Language: ${members[i]["Second Language"]}`, `Religion: ${members[i]["Religion"]}`, `Student Category:${members[i]["Student Category"]}`, `Student Address Line 1:${members[i]["Student Address Line 1"]}`, `Student Address Line 2: ${members[i]["Student Address Line 2"]}`, `City: ${members[i]["City"]}`, `State: ${members[i]["State"]}`, `Pin Code:${members[i]["Pin Code"]}`, `Email:${members[i]["Email"]}`]
+
                                 }
                             }
                         ],
