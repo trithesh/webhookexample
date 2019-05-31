@@ -191,26 +191,26 @@ app.post('/webhook/', function(request, response) {
                             }
                         ],
                     });
-                } else {
-                    return response.json({
-                        fulfillmentMessages: [{
-                                text: {
-                                    text: [
-                                        `admission number ${parameters.admission} is not found`
-                                    ]
-                                },
-                                platform: "FACEBOOK"
-                            },
-                            {
-                                text: {
-                                    text: [
-                                        `admission number ${parameters.admission} is not found`
-                                    ]
-                                }
-                            }
-                        ],
-                    });
                 }
+            } {
+                return response.json({
+                    fulfillmentMessages: [{
+                            text: {
+                                text: [
+                                    `admission number ${parameters.admission} is not found`
+                                ]
+                            },
+                            platform: "FACEBOOK"
+                        },
+                        {
+                            text: {
+                                text: [
+                                    `admission number ${parameters.admission} is not found`
+                                ]
+                            }
+                        }
+                    ],
+                });
             }
         } else {
             return response.json({
