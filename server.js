@@ -22,13 +22,12 @@ app.post('/webhook/', function(request, response) {
     const action = dialogflowRequest.queryResult.action;
     const intent = dialogflowRequest.queryResult.intent.displayName;
     const parameters = dialogflowRequest.queryResult.parameters;
-
+    // intent handling
     switch (intent) {
         case "Default Welcome Intent":
             return response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
-            break;
-        case "static":
-            response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
+        case "count":
+            getCount(parameters);
             break;
         case "total student count":
             totCount();
@@ -43,9 +42,59 @@ app.post('/webhook/', function(request, response) {
             return response.json({ fulfillmentText: `The webhook recheck` });
     }
 
+    function getCount(parameters) {
+        switch (parameters.typeOf) {
+            case 'male':
+                totmaleCount();
+                break;
+            case 'female':
+                totfemaleCount();
+                break;
+            case 'both':
+                totCount();
+                break;
+            default:
+                return response.json({
+                    fulfillmentMessages: [{
+                            text: {
+                                text: [
+                                    `whom do you want to count boys, girls or both`
+                                ]
+                            },
+                            platform: "FACEBOOK"
+                        },
+                        {
+                            text: {
+                                text: [
+                                    `whom do you want to count boys, girls or both`
+                                ]
+                            }
+                        }
+                    ],
+                });
+        }
+    }
+
     function totCount() {
         var membersCount = members.length;
-        return response.json({ fulfillmentText: `The total strength of students is ${membersCount}` });
+        return response.json({
+            fulfillmentMessages: [{
+                    text: {
+                        text: [
+                            `Total students are ${membersCount}`
+                        ]
+                    },
+                    platform: "FACEBOOK"
+                },
+                {
+                    text: {
+                        text: [
+                            `Total students are ${membersCount}`
+                        ]
+                    }
+                }
+            ],
+        });
     }
 
     function totmaleCount() {
@@ -56,11 +105,10 @@ app.post('/webhook/', function(request, response) {
             }
         }
         return response.json({
-            fulfillmentText: `Total male students are ${malecount}`,
             fulfillmentMessages: [{
                     text: {
                         text: [
-                            "test text from local"
+                            `Total male students are ${malecount}`
                         ]
                     },
                     platform: "FACEBOOK"
@@ -68,7 +116,7 @@ app.post('/webhook/', function(request, response) {
                 {
                     text: {
                         text: [
-                            ""
+                            `Total male students are ${malecount}`
                         ]
                     }
                 }
@@ -83,7 +131,24 @@ app.post('/webhook/', function(request, response) {
                 femalecount++
             }
         }
-        return response.json({ fulfillmentText: `Total female students are ${femalecount}` });
+        return response.json({
+            fulfillmentMessages: [{
+                    text: {
+                        text: [
+                            `Total female students are ${femalecount}`
+                        ]
+                    },
+                    platform: "FACEBOOK"
+                },
+                {
+                    text: {
+                        text: [
+                            `Total male students are ${femalecount}`
+                        ]
+                    }
+                }
+            ],
+        });
     }
 
 });
