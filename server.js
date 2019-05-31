@@ -56,9 +56,12 @@ app.post('/webhook/', function(request, response) {
             default:
                 return response.json({
                     fulfillmentMessages: [{
-                            text: {
-                                text: [
-                                    `whom do you want to count boys, girls or both`
+                            quickReplies: {
+                                title: "whom do you want to count",
+                                quickReplies: [
+                                    "Girls",
+                                    "Boys",
+                                    "Both"
                                 ]
                             },
                             platform: "FACEBOOK"
