@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var googleSpreadsheet = require('./googleSpreadsheet');
-var dialogflow = require('./dialogflow');
 // import students list file
 // var studentsData = require('"csvjson (1).json"')
 // console.log(studentsData.length)
@@ -21,7 +20,8 @@ app.post('/webhook/', function(request, response) {
     const dialogflowRequest = request.body;
     // An intent's action serves as a mapping mechanism between your intent and a function living in your app.
     const action = dialogflowRequest.queryResult.action;
-    const intent = dialogflowRequest.queryResult.intent.displayName
+    const intent = dialogflowRequest.queryResult.intent.displayName;
+    const parameters = dialogflowRequest.queryResult.parameters;
 
     switch (intent) {
         case "Default Welcome Intent":
@@ -57,17 +57,17 @@ app.post('/webhook/', function(request, response) {
         }
         return response.json({
             fulfillmentText: `Total male students are ${malecount}`,
-            "fulfillmentMessages": [{
-                    "text": {
-                        "text": [
+            fulfillmentMessages: [{
+                    text: {
+                        text: [
                             "test text from local"
                         ]
                     },
-                    "platform": "FACEBOOK"
+                    platform: "FACEBOOK"
                 },
                 {
-                    "text": {
-                        "text": [
+                    text: {
+                        text: [
                             ""
                         ]
                     }
