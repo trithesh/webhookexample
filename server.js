@@ -23,17 +23,8 @@ app.post('/webhook/', function(request, response) {
     switch (intent) {
         case "Default Welcome Intent":
             return response.json({ fulfillmentText: `webhook says this is ${intent} intent ` });
-        case "count":
+        case "GBC":
             getCount(parameters);
-            break;
-        case "total student count":
-            totCount();
-            break;
-        case "total Male student count":
-            totmaleCount();
-            break;
-        case "total female student count":
-            totfemaleCount();
             break;
         case "get details":
             getDetails(parameters);
