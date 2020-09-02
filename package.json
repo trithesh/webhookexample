@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "body-parser": "^1.18.2",
-    "googleapis": "^27",
+    "googleapis": "^59",
     "dialogflow-fulfillment": "^0.5.0"
   },
   "engines": {
